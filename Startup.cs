@@ -24,7 +24,10 @@ namespace aspnet_core_basic
             // {
             //     app.UseDeveloperExceptionPage();
             // }
-            app.UseWelcomePage();
+            app.UseWelcomePage(new WelcomePageOptions
+            {
+                Path = "/home"
+            });
             app.Run(async (context) =>
             {
                 await context.Response.WriteAsync("Hello World!");
