@@ -32,5 +32,10 @@ namespace aspnet_core_basic.Controllers
             //     return RedirectToAction(nameof(Index));
             return View(model);
         }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
     }
 }
