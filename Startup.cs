@@ -21,15 +21,16 @@ namespace aspnet_core_basic
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILogger<Startup> logger)
         {
-            // if (env.IsDevelopment())
-            // {
-            app.UseDeveloperExceptionPage();
-            // }
+            if (env.IsDevelopment())
+            {
+
+                app.UseDeveloperExceptionPage();
+            }
 
             app.Run(async (context) =>
             {
-                throw new Exception("Error");
-                await context.Response.WriteAsync("Hello World!");
+                var greeting = "Greeting devs ";
+                await context.Response.WriteAsync($"{greeting}:{env.EnvironmentName}");
             });
         }
     }
