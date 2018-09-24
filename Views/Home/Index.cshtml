@@ -1,11 +1,12 @@
-@model IEnumerable<aspnet_core_basic.Models.Restaurant>
+@model aspnet_core_basic.ViewModels.HomeIndexViewModels
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Home</title>
 </head>
 <body>
 <table>  
-    @foreach(var item in Model) 
+    <h1>@Model.CurrentMessage</h1>
+    @foreach(var item in Model.Restaurants) 
     {<tr> 
         <td>@item.Id</td> 
         <td>@item.Name</td>
