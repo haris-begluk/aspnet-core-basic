@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 
 namespace aspnet_core_basic
 {
@@ -18,15 +19,30 @@ namespace aspnet_core_basic
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILogger<Startup> logger)
         {
             // if (env.IsDevelopment())
             // {
             //     app.UseDeveloperExceptionPage();
             // }
-            app.UseWelcomePage(new WelcomePageOptions
+            app.Use(next =>
             {
-                Path = "/home"
+                return async context =>
+                {
+                    logger.LogInformation("Request incomming");
+                    if (context.Request.Path.StartsWithSegments("/movies"))
+                    {
+                        await context.Response.WriteAsync("Hit!!!!");
+                        logger.LogInformation("Request handled");
+
+                    }
+                    else
+                    {
+                        await next(context);
+                        logger.LogInformation("Response outgoing");
+
+                    }
+                };
             });
             app.Run(async (context) =>
             {
