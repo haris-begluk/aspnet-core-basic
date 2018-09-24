@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace aspnet_core_basic.Controllers
 {
-    [Route("about")]
+    [Route("[controller]")]
     public class AboutController
     {
         [Route("")]
@@ -10,7 +10,7 @@ namespace aspnet_core_basic.Controllers
         {
             return "44353636";
         }
-        [Route("address")]
+        [Route("[action]")]
         public string Address()
         {
             return "USA-New York";
