@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
@@ -28,7 +29,7 @@ namespace aspnet_core_basic
                 app.UseDeveloperExceptionPage();
             }
             app.UseStaticFiles();
-            app.UseMvc();
+            app.UseMvc(ConfigureRoutes);
 
             app.Run(async (context) =>
             {
@@ -36,6 +37,13 @@ namespace aspnet_core_basic
                 context.Response.ContentType = "text/plain";
                 await context.Response.WriteAsync($"Not found");
             });
+        }
+
+        private void ConfigureRoutes(IRouteBuilder routeBuilder)
+        { // "{controller=Home}/{action=Index}/{id?}"
+            routeBuilder.MapRoute("Default",
+            "{controller=Home}/{action=Index}/{id?}"
+            );
         }
     }
 }
