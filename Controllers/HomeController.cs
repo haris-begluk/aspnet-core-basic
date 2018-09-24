@@ -1,13 +1,13 @@
 using Microsoft.AspNetCore.Mvc;
+using aspnet_core_basic.Models;
 namespace aspnet_core_basic.Controllers
 {
     public class HomeController : Controller
     {
         public IActionResult Index()
         {
-            //return this.BadRequest(); 
-            // return this.File();
-            return Content("Home controller");
+            var model = new Restaurant(1, "New Restaurant");
+            return new ObjectResult(model);
         }
     }
 }
