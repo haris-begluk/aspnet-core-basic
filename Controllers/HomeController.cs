@@ -7,7 +7,7 @@ namespace aspnet_core_basic.Controllers
         public IActionResult Index()
         {
             var model = new Restaurant(1, "New Restaurant");
-            return new ObjectResult(model);
+            return View(model);
         }
     }
 }
