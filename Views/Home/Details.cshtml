@@ -1,0 +1,9 @@
+@model aspnet_core_basic.Models.Restaurant 
+<!-- @if(Model == null){
+    <h1>Restaurant dont exist!</h1>
+}else{
+<h1>@Model.Name</h1> 
+<p>..... Details ....</p>} --> 
+<h1>@Model.Name</h1> 
+<p>..... Details ....</p> 
+<a asp-action="Index" asp-controller="Home">Home</a>
