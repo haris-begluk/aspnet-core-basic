@@ -26,8 +26,8 @@ namespace aspnet_core_basic
 
                 app.UseDeveloperExceptionPage();
             }
-            app.UseDefaultFiles(); //use index.html in any path
-            app.UseStaticFiles();//use index.html in /index.html path
+
+            app.UseFileServer();
             app.Run(async (context) =>
             {
                 var greeting = "Greeting devs ";
