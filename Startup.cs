@@ -26,7 +26,7 @@ namespace aspnet_core_basic
 
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseStaticFiles();
             app.Run(async (context) =>
             {
                 var greeting = "Greeting devs ";
