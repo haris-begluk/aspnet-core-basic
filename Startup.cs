@@ -28,7 +28,7 @@ namespace aspnet_core_basic
 
                 app.UseDeveloperExceptionPage();
             }
-            app.UseStaticFiles();
+            // app.UseStaticFiles();
             app.UseMvc(ConfigureRoutes);
 
             app.Run(async (context) =>

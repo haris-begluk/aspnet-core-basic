@@ -1,10 +1,13 @@
+using Microsoft.AspNetCore.Mvc;
 namespace aspnet_core_basic.Controllers
 {
-    public class HomeController
+    public class HomeController : Controller
     {
-        public string Index()
+        public IActionResult Index()
         {
-            return "Home controller";
+            //return this.BadRequest(); 
+            // return this.File();
+            return Content("Home controller");
         }
     }
 }
