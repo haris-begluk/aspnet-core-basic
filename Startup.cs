@@ -23,29 +23,12 @@ namespace aspnet_core_basic
         {
             // if (env.IsDevelopment())
             // {
-            //     app.UseDeveloperExceptionPage();
+            app.UseDeveloperExceptionPage();
             // }
-            app.Use(next =>
-            {
-                return async context =>
-                {
-                    logger.LogInformation("Request incomming");
-                    if (context.Request.Path.StartsWithSegments("/movies"))
-                    {
-                        await context.Response.WriteAsync("Hit!!!!");
-                        logger.LogInformation("Request handled");
 
-                    }
-                    else
-                    {
-                        await next(context);
-                        logger.LogInformation("Response outgoing");
-
-                    }
-                };
-            });
             app.Run(async (context) =>
             {
+                throw new Exception("Error");
                 await context.Response.WriteAsync("Hello World!");
             });
         }
