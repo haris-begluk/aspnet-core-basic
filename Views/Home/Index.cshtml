@@ -1,10 +1,16 @@
-@model aspnet_core_basic.Models.Restaurant 
+@model IEnumerable<aspnet_core_basic.Models.Restaurant>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Home</title>
 </head>
 <body>
-<h1>@Model.Name</h1> 
-<p>The id of this restaurant is @Model.Id</p>
+<table>  
+    @foreach(var item in Model) 
+    {<tr> 
+        <td>@item.Id</td> 
+        <td>@item.Name</td>
+    </tr>}
+    
+</table>
 </body>
 </html>
