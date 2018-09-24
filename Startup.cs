@@ -27,13 +27,14 @@ namespace aspnet_core_basic
 
                 app.UseDeveloperExceptionPage();
             }
-            app.UseMvcWithDefaultRoute();
-            app.UseFileServer();
+            app.UseStaticFiles();
+            app.UseMvc();
 
             app.Run(async (context) =>
             {
-                var greeting = "Greeting devs ";
-                await context.Response.WriteAsync($"{greeting}:{env.EnvironmentName}");
+                // var greeting = "Greeting devs "; 
+                context.Response.ContentType = "text/plain";
+                await context.Response.WriteAsync($"Not found");
             });
         }
     }
