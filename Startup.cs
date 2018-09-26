@@ -22,7 +22,7 @@ namespace aspnet_core_basic
             //services.AddSingleton<IRestaurantData, InMemoryRestaurantData>();
             //if we need IRestaurantData in application we will get InMemoryRestaurantData with one instance for hole application 
 
-            services.AddScoped<IRestaurantData, InMemoryRestaurantData>();
+            services.AddSingleton<IRestaurantData, InMemoryRestaurantData>();
             //if we need IRestaurantData in application we will get InMemoryRestaurantData with one instance for every request in app 
             services.AddSingleton<IGreeter, Greeter>();
             services.AddMvc();

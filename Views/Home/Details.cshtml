@@ -4,6 +4,12 @@
 }else{
 <h1>@Model.Name</h1> 
 <p>..... Details ....</p>} --> 
-<h1>@Model.Name</h1> 
+<h1>@Model.Name</h1>  
+<div> 
+    Id: @Model.Id
+</div> 
+<div> 
+    Cuisine: @Model.Cuisine
+</div>
 <p>..... Details ....</p> 
 <a asp-action="Index" asp-controller="Home">Home</a>
