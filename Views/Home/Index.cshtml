@@ -17,7 +17,7 @@
         @Html.ActionLink("GO", "Details",new{id=item.Id}) 
         </td> 
         <td><a asp-action="Details" asp-route-id="@item.Id">More</a>
-        <a asp-page="/Restaurants/Edit" asp-route-id="@restaurant.id">Edit</a>
+        @*<a asp-page="/Restaurants/Edit" asp-route-id="@restaurant.id">Edit</a>*@
         </td>
     </tr>}
     
