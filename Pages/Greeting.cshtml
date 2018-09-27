@@ -1,0 +1,9 @@
+@page  "{name}"
+
+@inject IGreeter Greeter 
+<h1>Hello!</h1>  
+<h1>@DateTime.Now.Year</h1> 
+<h1>@Greeter.GetMessageOfTheDay()</h1>
+
+<!-- //http://localhost:5002/Greeting --> 
+<!-- http://localhost:5002/Greeting/neko -->

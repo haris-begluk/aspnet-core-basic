@@ -1,9 +1,7 @@
-@model aspnet_core_basic.Models.Restaurant 
-<!-- @if(Model == null){
-    <h1>Restaurant dont exist!</h1>
-}else{
-<h1>@Model.Name</h1> 
-<p>..... Details ....</p>} --> 
+@model Restaurant
+@{
+    ViewBag.Title = Model.Name;
+}
 <h1>@Model.Name</h1>  
 <div> 
     Id: @Model.Id

@@ -1,11 +1,11 @@
 @model aspnet_core_basic.ViewModels.HomeIndexViewModels
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title>Home</title>
-</head>
-<body>
+@{
+    ViewBag.Title = "Home Page";  
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    } 
+    <h1>All Restaurants</h1>
 <table>  
-    <h1>@Model.CurrentMessage</h1>
+    
     @foreach(var item in Model.Restaurants) 
     {<tr> 
         <td>@item.Id</td> 
@@ -16,10 +16,15 @@
         <td>
         @Html.ActionLink("GO", "Details",new{id=item.Id}) 
         </td> 
-        <td><a asp-action="Details" asp-route-id="@item.Id">More</a></td>
+        <td><a asp-action="Details" asp-route-id="@item.Id">More</a>
+        <a asp-page="/Restaurants/Edit" asp-route-id="@restaurant.id">Edit</a>
+        </td>
     </tr>}
     
 </table> 
 <a asp-action="Create">Add Restaurant</a>
-</body>
-</html>
+@section footer{
+    <div> 
+       <h1>@Model.CurrentMessage</h1>
+    </div>
+}
