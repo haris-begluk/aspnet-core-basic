@@ -2,9 +2,11 @@ using Microsoft.AspNetCore.Mvc;
 using aspnet_core_basic.Models;
 using aspnet_core_basic.Services;
 using aspnet_core_basic.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace aspnet_core_basic.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private IRestaurantData _restaurantData;
@@ -13,7 +15,8 @@ namespace aspnet_core_basic.Controllers
         {
             _restaurantData = restaurantData;
             _greeter = greeter;
-        }
+        } 
+        [AllowAnonymous]
         public IActionResult Index()
         {
             var model = new HomeIndexViewModels();
@@ -32,7 +35,8 @@ namespace aspnet_core_basic.Controllers
             //     return RedirectToAction(nameof(Index));
             return View(model);
         }
-        [HttpGet]
+        [HttpGet] 
+        
         public IActionResult Create()
         {
             return View();

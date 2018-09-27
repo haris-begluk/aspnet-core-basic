@@ -6,9 +6,11 @@ using aspnet_core_basic.Services;
 using aspnet_core_basic.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Authorization;
 
 namespace apsnet_core_basic.Pages.Restaurants
-{
+{ 
+    [Authorize]
     public class EditModel : PageModel
     {
         private IRestaurantData _restaurantData; 
